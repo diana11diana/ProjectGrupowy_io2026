@@ -1,58 +1,169 @@
-# Pulse Studio – Dance School Reservation System
+# Pulse Studio – System Rezerwacji Szkoły Tańca
 
-## Project Description
+## Opis projektu
 
-**Pulse Studio** is a modern web application created to manage a dance school. The system allows users to register, log in, browse classes, create reservations, manage profiles, and perform administrative tasks depending on their role.
+**Pulse Studio** to nowoczesna aplikacja internetowa przeznaczona do zarządzania szkołą tańca. System umożliwia użytkownikom rejestrację, logowanie, przeglądanie zajęć, dokonywanie rezerwacji oraz zarządzanie danymi w zależności od przypisanej roli.
 
-The application was developed as a university group project using modern web technologies and follows the MVC architecture.
+Projekt został wykonany jako projekt grupowy na studia z wykorzystaniem architektury MVC oraz nowoczesnych technologii internetowych.
 
 ---
 
-# Main Features
+# Główne funkcjonalności
 
-## User Authentication
+## Rejestracja i logowanie
 
-The system provides:
+System umożliwia:
 
-- User registration
-- User login
-- Role-based authorization
-- Logout functionality
+- rejestrację nowych użytkowników,
+- logowanie do systemu,
+- autoryzację na podstawie ról,
+- wylogowanie z aplikacji.
 
-Three user roles are supported:
+Obsługiwane są trzy role użytkowników:
 
-- **Client**
-- **Instructor**
+- **Klient**
+- **Instruktor**
 - **Administrator**
 
-After logging in, the user is automatically redirected to the appropriate dashboard.
+Po zalogowaniu użytkownik zostaje automatycznie przekierowany do odpowiedniego panelu.
 
 ---
 
-# Client Panel
+# Panel Klienta
 
-The client can:
+Klient może:
 
-- View personal dashboard
-- Browse available classes
-- Reserve classes
-- View personal reservations
-- Edit profile information
-- View purchased passes
-- View payments
-- Receive notifications
+- przeglądać swój dashboard,
+- przeglądać dostępne zajęcia,
+- rezerwować zajęcia,
+- zarządzać swoimi rezerwacjami,
+- edytować profil,
+- przeglądać zakupione karnety,
+- sprawdzać historię płatności,
+- odbierać powiadomienia.
 
 ---
 
-# Instructor Panel
+# Panel Instruktora
 
-The instructor can:
+Instruktor może:
 
-- View personal dashboard
-- Edit profile
-- Add biography
-- Manage personal information
-- Create new classes
+- przeglądać swój dashboard,
+- edytować profil,
+- dodawać własną biografię,
+- określać specjalizację,
+- tworzyć nowe zajęcia,
+- zarządzać swoimi zajęciami,
+- przeglądać listę uczestników,
+- analizować statystyki.
+
+---
+
+# Panel Administratora
+
+Administrator posiada dostęp do:
+
+- Dashboardu,
+- zarządzania użytkownikami,
+- zarządzania klientami,
+- zarządzania instruktorami,
+- zarządzania zajęciami,
+- zarządzania płatnościami,
+- raportów,
+- ustawień systemu.
+
+---
+
+# Wykorzystane technologie
+
+Projekt został wykonany z użyciem:
+
+- Java 17
+- Spring Boot
+- Maven
+- MySQL
+- HTML5
+- CSS3
+- JavaScript
+
+---
+
+# Struktura projektu
+
+```text
+DanceSchoolProject_PDF_TECH_READY
+
+│
+├── backend
+│
+├── frontend
+│     ├── index.html
+│     ├── login.html
+│     ├── register.html
+│     ├── client.html
+│     ├── trainer.html
+│     ├── admin.html
+│     └── assets
+│
+├── pom.xml
+│
+└── README.md
+```
+
+---
+
+# Uruchomienie projektu
+
+## Uruchomienie aplikacji
+
+```bash
+mvn spring-boot:run
+```
+
+lub
+
+```bash
+mvn -f DanceSchoolProject_PDF_TECH_READY/pom.xml spring-boot:run
+```
+
+Aplikacja jest dostępna pod adresem:
+
+```text
+http://localhost:4173
+```
+
+---
+
+# Baza danych
+
+Aplikacja korzysta z bazy danych **MySQL**.
+
+Główne encje systemu:
+
+- Użytkownicy
+- Zajęcia
+- Rezerwacje
+- Płatności
+- Opinie
+- Powiadomienia
+
+---
+
+# Sposób działania aplikacji
+
+1. Użytkownik otwiera stronę główną.
+2. Rejestruje się lub loguje do systemu.
+3. System rozpoznaje rolę użytkownika.
+4. Następuje automatyczne przekierowanie do odpowiedniego panelu.
+5. Każda rola posiada własny zestaw funkcjonalności oraz dedykowany interfejs.
+
+---
+
+# Cel projektu
+
+Celem projektu jest stworzenie nowoczesnego systemu wspomagającego zarządzanie szkołą tańca. Aplikacja usprawnia proces rezerwacji zajęć, organizację pracy instruktorów oraz zarządzanie użytkownikami przez administratora.
+
+Projekt prezentuje praktyczne wykorzystanie technologii backendowych i frontendowych, integrację z bazą danych oraz mechanizm zarządzania uprawnieniami użytkowników w kompletnej aplikacji internetowej.- Create new classes
 - View created classes
 - Monitor participants
 - View statistics
