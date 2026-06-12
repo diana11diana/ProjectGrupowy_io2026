@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Pulse Studio | Rejestracja</title>
+
+    <link rel="stylesheet" href="assets/app.css">
+
+</head>
+
+<body class="auth-page">
+
+<div class="auth-container">
+
+    <div class="auth-left">
+
+        <p class="eyebrow">
+            Dołącz do Pulse Studio
+        </p>
+
+        <h1>
+            Załóż konto w mniej niż minutę
+        </h1>
+
+        <p class="auth-text">
+
+            Klient może zapisywać się na zajęcia,
+            a instruktor zarządzać własnym grafikiem
+            i uczestnikami.
+
+        </p>
+
+        <div class="auth-features">
+
+            <div class="feature-mini">
+
+                ✅ Rezerwacje online
+
+            </div>
+
+            <div class="feature-mini">
+
+                ✅ Zarządzanie grafikiem
+
+            </div>
+
+            <div class="feature-mini">
+
+                ✅ Powiadomienia
+
+            </div>
+
+            <div class="feature-mini">
+
+                ✅ Historia zajęć
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="auth-right">
+
+        <h2>Rejestracja</h2>
+
+        <form id="registerForm">
+
+            <label>
+
+                Typ konta
+
+                <select id="role">
+
+                    <option value="CLIENT">
+                        Klient
+                    </option>
+
+                    <option value="INSTRUCTOR">
+                        Instruktor
+                    </option>
+
+                </select>
+
+            </label>
+
+            <label>
+
+                Imię
+
+                <input
+                        id="firstName"
+                        type="text"
+                        required>
+
+            </label>
+
+            <label>
+
+                Nazwisko
+
+                <input
+                        id="lastName"
+                        type="text"
+                        required>
+
+            </label>
+
+            <label>
+
+                Data urodzenia
+
+                <input
+                        id="birthDate"
+                        type="date"
+                        required>
+
+            </label>
+
+            <label>
+
+                Email
+
+                <input
+                        id="email"
+                        type="email"
+                        required>
+
+            </label>
+
+            <label>
+
+                Hasło
+
+                <input
+                        id="password"
+                        type="password"
+                        required>
+
+            </label>
+
+            <button
+                    type="submit"
+                    class="btn primary full">
+
+                Załóż konto
+
+            </button>
+
+        </form>
+
+        <div
+                id="registerMessage"
+                class="form-message">
+
+        </div>
+
+        <p class="login-link">
+
+            Masz już konto?
+
+            <a href="login.html">
+
+                Zaloguj się
+
+            </a>
+
+        </p>
+
+    </div>
+
+</div>
+
+<script src="assets/auth.js"></script>
+
+</body>
+
+</html>

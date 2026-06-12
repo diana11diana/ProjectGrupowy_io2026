@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Pulse Studio | Logowanie</title>
+
+    <link rel="stylesheet" href="assets/app.css">
+
+</head>
+
+<body class="auth-page">
+
+<div class="auth-container">
+
+    <div class="auth-left">
+
+        <p class="eyebrow">
+            Welcome back
+        </p>
+
+        <h1>
+
+            Zaloguj się do swojego konta
+
+        </h1>
+
+        <p class="auth-text">
+
+            Po zalogowaniu zostaniesz automatycznie
+            przeniesiony do swojego panelu
+            (Client lub Instructor).
+
+        </p>
+
+        <div class="auth-features">
+
+            <div class="feature-mini">
+
+                📅 Zarządzanie zajęciami
+
+            </div>
+
+            <div class="feature-mini">
+
+                👥 Lista uczestników
+
+            </div>
+
+            <div class="feature-mini">
+
+                💳 Karnety
+
+            </div>
+
+            <div class="feature-mini">
+
+                📊 Statystyki
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="auth-right">
+
+        <h2>Logowanie</h2>
+
+        <form id="loginForm">
+
+            <label>
+
+                Email
+
+                <input
+                        id="loginEmail"
+                        type="email"
+                        required>
+
+            </label>
+
+            <label>
+
+                Hasło
+
+                <input
+                        id="loginPassword"
+                        type="password"
+                        required>
+
+            </label>
+
+            <button
+                    type="submit"
+                    class="btn primary full">
+
+                Zaloguj się
+
+            </button>
+
+        </form>
+
+        <div
+                id="loginMessage"
+                class="form-message">
+
+        </div>
+
+        <p class="login-link">
+
+            Nie masz konta?
+
+            <a href="register.html">
+
+                Załóż konto
+
+            </a>
+
+        </p>
+
+    </div>
+
+</div>
+
+<script src="assets/auth.js"></script>
+
+</body>
+</html>

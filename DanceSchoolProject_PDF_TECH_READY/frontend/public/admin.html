@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>Pulse Studio | Panel administratora</title>
+<link rel="stylesheet" href="assets/app.css">
+<link rel="stylesheet" href="assets/dashboard-modern.css">
+</head>
+<body class="dashboard-page">
+
+<aside class="dashboard-sidebar">
+<div class="sidebar-logo">Pulse Studio</div>
+
+<nav class="sidebar-menu">
+<button class="sidebar-link active" data-section="dashboard">Dashboard</button>
+<button class="sidebar-link" data-section="users">Użytkownicy</button>
+<button class="sidebar-link" data-section="clients">Klienci</button>
+<button class="sidebar-link" data-section="trainers">Instruktorzy</button>
+<button class="sidebar-link" data-section="classes">Zajęcia</button>
+<button class="sidebar-link" data-section="payments">Płatności</button>
+<button class="sidebar-link" data-section="reports">Raporty</button>
+<button class="sidebar-link" data-section="settings">Ustawienia</button>
+</nav>
+
+<button id="logoutButton" class="logout-btn">Wyloguj</button>
+</aside>
+
+<main class="dashboard-content">
+<header class="dashboard-top">
+<div>
+<p class="eyebrow">Panel administratora</p>
+<h1>Centrum zarządzania szkołą</h1>
+</div>
+
+<div class="user-badge">
+<span>Administrator</span>
+<small>admin@pulsestudio.pl</small>
+</div>
+</header>
+
+<section class="dashboard-section" data-section-content="dashboard">
+<div class="dashboard-home-grid">
+<article class="dashboard-card home-hero-card">
+<p class="eyebrow">System</p>
+<h2>Pulse Studio działa poprawnie</h2>
+<p>Administrator widzi użytkowników, instruktorów, zajęcia, rezerwacje i płatności w jednym miejscu.</p>
+<span class="status-pill">Online</span>
+</article>
+
+<article class="stat-box"><span>Klienci</span><strong>124</strong></article>
+<article class="stat-box"><span>Instruktorzy</span><strong>12</strong></article>
+<article class="stat-box"><span>Zajęcia</span><strong>38</strong></article>
+
+<article class="dashboard-card">
+<h2>Aktywność</h2>
+<div class="timeline">
+<div class="timeline-item">✅ Nowy klient utworzył konto</div>
+<div class="timeline-item">📅 Instruktor dodał nowe zajęcia</div>
+<div class="timeline-item">💳 Zarejestrowano płatność</div>
+</div>
+</article>
+
+<article class="dashboard-card">
+<h2>Wydajność</h2>
+<p>Wypełnienie zajęć w tym miesiącu</p>
+<div class="progress-bar"><div class="progress-fill" style="width:82%"></div></div>
+<p class="progress-note">82% średniego obłożenia</p>
+</article>
+</div>
+</section>
+
+<section class="dashboard-section single-section" data-section-content="users">
+<article class="dashboard-card payments-page">
+<p class="eyebrow">Użytkownicy</p>
+<h2>Lista użytkowników</h2>
+<table class="data-table">
+<thead><tr><th>Imię i nazwisko</th><th>Email</th><th>Rola</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td>Anna Kowalska</td><td>anna@test.com</td><td>CLIENT</td><td><span class="status-pill">Aktywny</span></td></tr>
+<tr><td>Michał Nowak</td><td>michal@test.com</td><td>INSTRUCTOR</td><td><span class="status-pill">Aktywny</span></td></tr>
+<tr><td>Admin</td><td>admin@pulsestudio.pl</td><td>ADMIN</td><td><span class="status-pill">Aktywny</span></td></tr>
+</tbody>
+</table>
+</article>
+</section>
+
+<section class="dashboard-section single-section" data-section-content="clients">
+<article class="dashboard-card profile-center-card">
+<p class="eyebrow">Klienci</p>
+<h2>Zarządzanie klientami</h2>
+<p>Administrator może przeglądać konta klientów, rezerwacje i historię aktywności.</p>
+<div class="class-list">
+<div class="class-item"><strong>Aktywni klienci</strong><span class="status-pill">124</span></div>
+<div class="class-item"><strong>Nowi w tym miesiącu</strong><span class="status-pill">18</span></div>
+<div class="class-item"><strong>Klienci z karnetem</strong><span class="status-pill">76</span></div>
+</div>
+</article>
+</section>
+
+<section class="dashboard-section single-section" data-section-content="trainers">
+<article class="dashboard-card profile-center-card">
+<p class="eyebrow">Instruktorzy</p>
+<h2>Zarządzanie instruktorami</h2>
+<p>Widok instruktorów, ich zajęć, ocen i aktywności.</p>
+<div class="class-list">
+<div class="class-item"><strong>Anna Kowalska</strong><span class="status-pill">Salsa</span></div>
+<div class="class-item"><strong>Michał Nowak</strong><span class="status-pill">Bachata</span></div>
+<div class="class-item"><strong>Julia Wiśniewska</strong><span class="status-pill">Stretching</span></div>
+</div>
+</article>
+</section>
+
+<section class="dashboard-section single-section" data-section-content="classes">
+<article class="dashboard-card schedule-card">
+<p class="eyebrow">Zajęcia</p>
+<h2>Wszystkie zajęcia</h2>
+<div class="class-list">
+<div class="class-item"><div><strong>Salsa Beginner</strong><p>18:00 • Sala A • Anna Kowalska</p></div><span class="status-pill">Aktywne</span></div>
+<div class="class-item"><div><strong>Bachata Open</strong><p>19:30 • Sala B • Michał Nowak</p></div><span class="status-pill">Aktywne</span></div>
+<div class="class-item"><div><strong>Stretching</strong><p>17:00 • Sala C • Julia Wiśniewska</p></div><span class="status-pill">Aktywne</span></div>
+</div>
+</article>
+</section>
+
+<section class="dashboard-section single-section" data-section-content="payments">
+<article class="dashboard-card payments-page">
+<p class="eyebrow">Płatności</p>
+<h2>Historia płatności</h2>
+<table class="data-table">
+<thead><tr><th>Data</th><th>Klient</th><th>Kwota</th><th>Metoda</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td>12.06.2026</td><td>Anna Kowalska</td><td>199 zł</td><td>BLIK</td><td><span class="status-pill">Opłacone</span></td></tr>
+<tr><td>11.06.2026</td><td>Diana Test</td><td>45 zł</td><td>PayU</td><td><span class="status-pill">Opłacone</span></td></tr>
+</tbody>
+</table>
+</article>
+</section>
+
+<section class="dashboard-section single-section" data-section-content="reports">
+<article class="dashboard-card profile-center-card">
+<p class="eyebrow">Raporty</p>
+<h2>Raport miesięczny</h2>
+<p>Podsumowanie rezerwacji, użytkowników, aktywności i płatności.</p>
+<div class="progress-bar"><div class="progress-fill" style="width:74%"></div></div>
+<p class="progress-note">74% realizacji celu miesięcznego</p>
+</article>
+</section>
+
+<section class="dashboard-section single-section" data-section-content="settings">
+<article class="dashboard-card profile-center-card">
+<p class="eyebrow">Ustawienia</p>
+<h2>Ustawienia administracyjne</h2>
+<div class="class-list">
+<div class="class-item"><strong>Tryb systemu</strong><span class="status-pill">Production</span></div>
+<div class="class-item"><strong>Powiadomienia</strong><span class="status-pill">Włączone</span></div>
+<div class="class-item"><strong>Kopie zapasowe</strong><span class="status-pill warning-pill">Codziennie</span></div>
+</div>
+</article>
+</section>
+
+</main>
+
+<script src="assets/admin-dashboard.js"></script>
+</body>
+</html>

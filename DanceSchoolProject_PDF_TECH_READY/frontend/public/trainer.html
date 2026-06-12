@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>Pulse Studio | Panel instruktora</title>
+<link rel="stylesheet" href="assets/app.css">
+<link rel="stylesheet" href="assets/dashboard-modern.css">
+</head>
+<body class="dashboard-page">
+<aside class="dashboard-sidebar">
+<div class="sidebar-logo">Pulse Studio</div>
+<nav class="sidebar-menu">
+<button class="sidebar-link active" data-section="dashboard">Dashboard</button>
+<button class="sidebar-link" data-section="profile">Profil</button>
+<button class="sidebar-link" data-section="classes">Moje zajęcia</button>
+<button class="sidebar-link" data-section="create">Dodaj zajęcia</button>
+<button class="sidebar-link" data-section="students">Uczestnicy</button>
+<button class="sidebar-link" data-section="attendance">Obecność</button>
+<button class="sidebar-link" data-section="statistics">Statystyki</button>
+</nav>
+<button id="logoutButton" class="logout-btn">Wyloguj</button>
+</aside>
+
+<main class="dashboard-content">
+<header class="dashboard-top">
+<div><p class="eyebrow">Panel instruktora</p><h1 id="trainerWelcome">Witaj</h1></div>
+<div class="user-badge"><span id="trainerName">Instruktor</span><small id="trainerEmail">email</small></div>
+</header>
+
+<section class="dashboard-section" data-section-content="dashboard">
+<div class="dashboard-home-grid">
+<article class="dashboard-card home-hero-card"><p class="eyebrow">Dzisiaj</p><h2>Plan instruktora</h2><p>Sprawdź najbliższe zajęcia, uczestników i obecność.</p><span class="status-pill">Aktywny grafik</span></article>
+<article class="stat-box"><span>Moje zajęcia</span><strong id="trainerClassesCount">0</strong></article>
+<article class="stat-box"><span>Uczestnicy</span><strong>48</strong></article>
+<article class="stat-box"><span>Obecność</span><strong>92%</strong></article>
+<article class="dashboard-card"><h2>Ocena instruktora</h2><p class="price">4.8 ⭐</p></article>
+<article class="dashboard-card"><h2>Do zrobienia</h2><div class="timeline"><div class="timeline-item">✅ Sprawdź obecność</div><div class="timeline-item">📅 Dodaj nowe zajęcia</div></div></article>
+</div>
+</section>
+
+<section class="dashboard-section single-section" data-section-content="profile">
+<article class="dashboard-card profile-center-card">
+<p class="eyebrow">Profil instruktora</p>
+<h2>Mój profil</h2>
+<p>Edytuj dane widoczne dla klientów. Instruktor ma dodatkowo biografię oraz specjalizację.</p>
+
+<form id="trainerProfileForm" class="profile-edit-form">
+<label>
+Imię i nazwisko
+<input id="trainerProfileName" type="text" required>
+</label>
+
+<label>
+Email
+<input id="trainerProfileEmail" type="email" required>
+</label>
+
+<label>
+Specjalizacja
+<input id="trainerSpecialties" type="text" placeholder="np. Salsa, Bachata, Stretching">
+</label>
+
+<label>
+Biografia
+<textarea id="trainerBio" rows="6" placeholder="Napisz kilka zdań o doświadczeniu, stylu prowadzenia zajęć i specjalizacji."></textarea>
+</label>
+
+<button class="btn primary full" type="submit">Zapisz profil</button>
+<p id="trainerProfileMessage" class="form-message"></p>
+</form>
+</article>
+</section>
+
+<section class="dashboard-section single-section" data-section-content="classes">
+<article class="dashboard-card schedule-card"><p class="eyebrow">Zajęcia</p><h2>Moje zajęcia</h2><div id="trainerClassesList" class="class-list"></div></article>
+</section>
+
+<section class="dashboard-section single-section" data-section-content="create">
+<article class="dashboard-card profile-center-card">
+<p class="eyebrow">Nowe zajęcia</p><h2>Dodaj zajęcia</h2>
+<form id="createClassForm" class="profile-edit-form">
+<label>Nazwa zajęć<input id="classTitle" type="text" required></label>
+<label>Kategoria<select id="classCategory"><option>Salsa</option><option>Bachata</option><option>Contemporary</option><option>Stretching</option><option>Heels</option></select></label>
+<label>Poziom<select id="classLevel"><option value="Poczatkujacy">Początkujący</option><option value="Sredni">Średni</option><option value="Zaawansowany">Zaawansowany</option><option>Open</option></select></label>
+<label>Data<input id="classDate" type="date" required></label>
+<label>Godzina<input id="classTime" type="time" required></label>
+<label>Limit miejsc<input id="classCapacity" type="number" min="1" value="14" required></label>
+<button class="btn primary full" type="submit">Utwórz zajęcia</button>
+<p id="classMessage" class="form-message"></p>
+</form>
+</article>
+</section>
+
+<section class="dashboard-section single-section" data-section-content="students"><article class="dashboard-card profile-center-card"><h2>Uczestnicy</h2><p>Tu pojawią się listy uczestników przypisanych do zajęć instruktora.</p></article></section>
+<section class="dashboard-section single-section" data-section-content="attendance"><article class="dashboard-card profile-center-card"><h2>Obecność</h2><p>Tu instruktor będzie oznaczać obecność uczestników.</p></article></section>
+<section class="dashboard-section single-section" data-section-content="statistics"><article class="dashboard-card profile-center-card"><h2>Statystyki</h2><p>Podsumowanie liczby zajęć, frekwencji i opinii.</p></article></section>
+</main>
+
+<script src="assets/trainer-dashboard.js"></script>
+</body>
+</html>

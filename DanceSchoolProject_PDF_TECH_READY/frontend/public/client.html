@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>Pulse Studio | Panel klienta</title>
+<link rel="stylesheet" href="assets/app.css">
+<link rel="stylesheet" href="assets/dashboard-modern.css">
+</head>
+<body class="dashboard-page">
+<aside class="dashboard-sidebar">
+<div class="sidebar-logo">Pulse Studio</div>
+<nav class="sidebar-menu">
+<button class="sidebar-link active" data-section="dashboard">Dashboard</button>
+<button class="sidebar-link" data-section="profile">Mój profil</button>
+<button class="sidebar-link" data-section="bookings">Moje rezerwacje</button>
+<button class="sidebar-link" data-section="schedule">Harmonogram</button>
+<button class="sidebar-link" data-section="passes">Karnety</button>
+<button class="sidebar-link" data-section="payments">Płatności</button>
+<button class="sidebar-link" data-section="notifications">Powiadomienia</button>
+<button class="sidebar-link" data-section="settings">Ustawienia</button>
+</nav>
+<button id="logoutButton" class="logout-btn">Wyloguj</button>
+</aside>
+
+<main class="dashboard-content">
+<header class="dashboard-top">
+<div><p class="eyebrow">Panel klienta</p><h1 id="clientWelcome">Witaj</h1></div>
+<div class="user-badge"><span id="clientName">Klient</span><small id="clientEmail">email</small></div>
+</header>
+
+<section class="dashboard-section" data-section-content="dashboard">
+<div class="dashboard-home-grid">
+<article class="dashboard-card home-hero-card">
+<p class="eyebrow">Twój plan</p>
+<h2>Najbliższa rezerwacja</h2>
+<div id="nextBookingBox"><p>Ładowanie...</p></div>
+</article>
+<article class="stat-box"><span>Aktywne rezerwacje</span><strong id="bookingCount">0</strong></article>
+<article class="stat-box"><span>Dostępne zajęcia</span><strong id="classesCount">0</strong></article>
+<article class="stat-box"><span>Odwiedzone zajęcia</span><strong>12</strong></article>
+<article class="dashboard-card"><h2>Twój progres</h2><p>Regularność w tym miesiącu</p><div class="progress-bar"><div class="progress-fill" style="width:68%"></div></div><p class="progress-note">68% planu miesięcznego</p></article>
+<article class="dashboard-card"><h2>Rekomendowane zajęcia</h2><div id="recommendedClassesList" class="class-list"></div></article>
+<article class="dashboard-card"><h2>Ostatnie powiadomienia</h2><div class="timeline"><div class="timeline-item">✅ System rezerwacji jest aktywny</div><div class="timeline-item">📅 Możesz zapisywać się na zajęcia online</div></div></article>
+</div>
+</section>
+
+<section class="dashboard-section single-section" data-section-content="profile">
+<article class="dashboard-card profile-center-card">
+<p class="eyebrow">Profil</p><h2>Mój profil</h2><p>Edytuj dane konta klienta.</p>
+<form id="clientProfileForm" class="profile-edit-form">
+<label>Imię i nazwisko<input id="profileNameInput" type="text" required></label>
+<label>Email<input id="profileEmailInput" type="email" required></label>
+<label>Preferowana płatność<select id="profilePaymentInput"><option>BLIK</option><option>PayU</option><option>Karta</option></select></label>
+<button class="btn primary full" type="submit">Zapisz zmiany</button>
+<p id="profileMessage" class="form-message"></p>
+</form>
+</article>
+</section>
+
+<section class="dashboard-section single-section" data-section-content="bookings">
+<article class="dashboard-card reservations-card">
+<p class="eyebrow">Rezerwacje</p><h2>Moje rezerwacje</h2><p>Lista aktywnych rezerwacji klienta.</p>
+<div id="clientBookingsList" class="class-list"></div>
+</article>
+</section>
+
+<section class="dashboard-section single-section" data-section-content="schedule">
+<article class="dashboard-card schedule-card">
+<p class="eyebrow">Harmonogram</p><h2>Dostępne zajęcia</h2>
+<div class="filter-row">
+<select><option>Wszystkie kategorie</option><option>Salsa</option><option>Bachata</option><option>Stretching</option></select>
+<select><option>Dowolny poziom</option><option>Początkujący</option><option>Średni</option><option>Open</option></select>
+<input type="date">
+<input type="search" placeholder="Szukaj zajęć">
+</div>
+<div id="clientClassesList" class="class-list"></div>
+</article>
+</section>
+
+<section class="dashboard-section single-section" data-section-content="passes">
+<article class="dashboard-card passes-page">
+<p class="eyebrow">Karnety</p><h2>Wybierz pakiet</h2>
+<div class="pricing-cards">
+<div class="pricing-card"><h3>Single Class</h3><p class="price">45 zł</p><ul><li>1 wejście</li><li>Rezerwacja online</li></ul><button class="btn secondary full">Wybierz</button></div>
+<div class="pricing-card featured"><span class="popular-badge">Popularny</span><h3>Monthly Pass</h3><p class="price">199 zł</p><ul><li>Nielimitowane zajęcia</li><li>Priorytet rezerwacji</li></ul><button class="btn primary full">Kup teraz</button></div>
+<div class="pricing-card"><h3>10 Classes</h3><p class="price">349 zł</p><ul><li>10 wejść</li><li>Dowolne zajęcia</li></ul><button class="btn secondary full">Wybierz</button></div>
+</div>
+</article>
+</section>
+
+<section class="dashboard-section single-section" data-section-content="payments">
+<article class="dashboard-card payments-page"><p class="eyebrow">Płatności</p><h2>Historia płatności</h2>
+<table class="data-table"><thead><tr><th>Data</th><th>Kwota</th><th>Metoda</th><th>Status</th></tr></thead><tbody><tr><td>12.06.2026</td><td>199 zł</td><td>BLIK</td><td><span class="status-pill">Opłacone</span></td></tr></tbody></table>
+</article>
+</section>
+
+<section class="dashboard-section single-section" data-section-content="notifications">
+<article class="dashboard-card profile-center-card"><p class="eyebrow">Powiadomienia</p><h2>Centrum powiadomień</h2><div class="timeline"><div class="timeline-item">✅ Rezerwacja została dodana</div><div class="timeline-item">💳 Karnet jest aktywny</div><div class="timeline-item">📅 Nowe zajęcia w harmonogramie</div></div></article>
+</section>
+
+<section class="dashboard-section single-section" data-section-content="settings">
+<article class="dashboard-card settings-page"><p class="eyebrow">Ustawienia</p><h2>Ustawienia konta</h2><div class="class-list"><div class="class-item"><strong>Powiadomienia email</strong><span class="status-pill">Włączone</span></div><div class="class-item"><strong>Język aplikacji</strong><span class="status-pill">Polski</span></div><div class="class-item"><strong>Bezpieczeństwo</strong><span class="status-pill warning-pill">Zmień hasło</span></div></div></article>
+</section>
+</main>
+<script src="assets/client-dashboard.js"></script>
+</body>
+</html>

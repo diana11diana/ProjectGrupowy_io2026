@@ -1,0 +1,158 @@
+.sidebar-link {
+    width: 100%;
+    border: none;
+    background: transparent;
+    color: #f7e8dd;
+    padding: 15px 18px;
+    border-radius: 16px;
+    text-align: left;
+    font-weight: 800;
+    font-size: 16px;
+    cursor: pointer;
+    transition: .25s;
+}
+
+.sidebar-link:hover {
+    background: rgba(184, 92, 56, .35);
+    padding-left: 24px;
+}
+
+.sidebar-link.active {
+    background: #b85c38;
+    color: white;
+    box-shadow: 0 8px 22px rgba(0,0,0,.22);
+}
+
+.dashboard-section {
+    display: none;
+}
+
+.dashboard-home-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+.home-hero-card {
+    grid-column: span 2;
+}
+
+.profile-center-card,
+.reservations-card,
+.schedule-card,
+.passes-page,
+.payments-page,
+.settings-page {
+    max-width: 1050px;
+    margin: auto;
+}
+
+.progress-bar {
+    height: 14px;
+    background: #efe3da;
+    border-radius: 999px;
+    overflow: hidden;
+    margin: 20px 0;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg,#b85c38,#df9b74);
+}
+
+.pricing-cards {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 24px;
+    margin-top: 28px;
+}
+
+.pricing-card {
+    background: #fff8f3;
+    border: 1px solid #ead7c8;
+    border-radius: 28px;
+    padding: 30px;
+}
+
+.pricing-card.featured {
+    background: #241711;
+    color: white;
+}
+
+.price {
+    font-size: 38px;
+    font-weight: 900;
+    color: #9a3f26;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 24px;
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.data-table th,
+.data-table td {
+    padding: 18px;
+    border-bottom: 1px solid #eee;
+    text-align: left;
+}
+
+.timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 24px;
+}
+
+.timeline-item {
+    background: white;
+    border: 1px solid #ead7c8;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.status-pill {
+    padding: 9px 14px;
+    border-radius: 999px;
+    background: #e7f7ed;
+    color: #1f8a4c;
+    font-weight: 900;
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+.warning-pill {
+    background: #fff4d8;
+    color: #9a6500;
+}
+
+@media(max-width:1000px) {
+    .dashboard-home-grid,
+    .pricing-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .home-hero-card {
+        grid-column: span 1;
+    }
+}
+
+.profile-edit-form textarea {
+    padding: 15px;
+    border-radius: 14px;
+    border: 1px solid #ddd;
+    background: white;
+    font-size: 15px;
+    resize: vertical;
+    font-family: Arial, sans-serif;
+}
+
+.profile-edit-form textarea:focus {
+    outline: none;
+    border-color: #b85c38;
+    box-shadow: 0 0 0 4px rgba(184,92,56,.12);
+}
