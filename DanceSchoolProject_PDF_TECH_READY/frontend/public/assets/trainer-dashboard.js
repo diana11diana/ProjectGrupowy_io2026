@@ -78,7 +78,8 @@ async function saveTrainerProfile(event) {
             body: JSON.stringify({
                 name: updatedUser.name,
                 email: updatedUser.email,
-                specialties: updatedUser.specialties
+                specialties: updatedUser.specialties,
+                bio: updatedUser.bio
             })
         });
 

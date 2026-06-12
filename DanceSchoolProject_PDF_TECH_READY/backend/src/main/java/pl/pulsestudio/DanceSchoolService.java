@@ -72,28 +72,54 @@ public class DanceSchoolService {
   @Transactional
   public Map<String, Object> updateProfile(String userId, Map<String, Object> payload) {
     Map<String, Object> current = publicUser(userId);
+
+    String role = text(current.get("role"));
     String name = text(payload.getOrDefault("name", current.get("name"))).trim();
     String email = normalizeEmail(payload.getOrDefault("email", current.get("email")));
     String paymentMethod = text(payload.getOrDefault("defaultPaymentMethod", current.get("defaultPaymentMethod"))).trim();
     String specialties = text(payload.getOrDefault("specialties", current.get("specialties"))).trim();
+    String bio = text(payload.getOrDefault("bio", current.get("bio"))).trim();
     String password = text(payload.get("password"));
+
     if (name.length() < 3) {
       throw new AppException("Imie i nazwisko musi miec co najmniej 3 znaki.");
     }
+
     if (!email.matches("^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$")) {
       throw new AppException("Podaj poprawny adres email.");
     }
+
     if (count("SELECT COUNT(*) FROM users WHERE email = ? AND id <> ?", email, userId) > 0) {
       throw new AppException("Ten adres email jest juz zajety.");
     }
-    if (!password.isBlank()) {
-      if (password.length() < 6) throw new AppException("Nowe haslo musi miec co najmniej 6 znakow.");
-      jdbc.update("UPDATE users SET name = ?, email = ?, default_payment_method = ?, specialties = ?, password_hash = ? WHERE id = ?",
-          name, email, paymentMethod, specialties, passwordHash(password), userId);
-    } else {
-      jdbc.update("UPDATE users SET name = ?, email = ?, default_payment_method = ?, specialties = ? WHERE id = ?",
-          name, email, paymentMethod, specialties, userId);
+
+    if (!"CLIENT".equals(role)) {
+      paymentMethod = null;
     }
+
+    if (!"INSTRUCTOR".equals(role)) {
+      specialties = null;
+      bio = null;
+    }
+
+    if (!password.isBlank()) {
+      if (password.length() < 6) {
+        throw new AppException("Nowe haslo musi miec co najmniej 6 znakow.");
+      }
+
+      jdbc.update("""
+          UPDATE users
+          SET name = ?, email = ?, default_payment_method = ?, specialties = ?, bio = ?, password_hash = ?
+          WHERE id = ?
+          """, name, email, paymentMethod, specialties, bio, passwordHash(password), userId);
+    } else {
+      jdbc.update("""
+          UPDATE users
+          SET name = ?, email = ?, default_payment_method = ?, specialties = ?, bio = ?
+          WHERE id = ?
+          """, name, email, paymentMethod, specialties, bio, userId);
+    }
+
     return mapOf("ok", true, "user", publicUser(userId));
   }
 
@@ -380,20 +406,33 @@ public class DanceSchoolService {
 
 
   private Map<String, Object> publicUser(String id) {
-    List<Map<String, Object>> rows = jdbc.queryForList("SELECT id, role, name, email, default_payment_method, specialties FROM users WHERE id = ?", id);
+    List<Map<String, Object>> rows = jdbc.queryForList("""
+        SELECT id, role, name, email, default_payment_method, specialties, bio
+        FROM users
+        WHERE id = ?
+        """, id);
+
     if (rows.isEmpty()) {
       throw new AppException("Nie znaleziono uzytkownika.", HttpStatus.NOT_FOUND);
     }
+
     Map<String, Object> row = rows.get(0);
+
     Map<String, Object> user = mapOf(
         "id", row.get("id"),
         "role", row.get("role"),
         "name", row.get("name"),
         "email", row.get("email"),
         "defaultPaymentMethod", row.get("default_payment_method"));
+
     if (row.get("specialties") != null && !text(row.get("specialties")).isBlank()) {
-      user.put("specialties", List.of(text(row.get("specialties")).split(",")));
+      user.put("specialties", text(row.get("specialties")));
     }
+
+    if (row.get("bio") != null && !text(row.get("bio")).isBlank()) {
+      user.put("bio", text(row.get("bio")));
+    }
+
     return user;
   }
 
